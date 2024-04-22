@@ -1,12 +1,13 @@
 #! /usr/bin/env node
 
 import inquirer from "inquirer";
+import chalk from "chalk";
 
 let myBalance = 10000;
 let myPin = 4486;
 
-console.log("Welcome to Muntazir Mohammad - ATM")
-console.log(`The pin is ${myPin}`)
+console.log(chalk.green.bold("Welcome to Muntazir Mohammad - ATM Machine"))
+console.log(chalk.yellow.bold(`The pin is ${myPin}`))
 
 let pinAnswer = await inquirer.prompt(
     [{
