@@ -6,7 +6,7 @@ import chalk from "chalk";
 let myBalance = 10000;
 let myPin = 4486;
 
-console.log(chalk.green.bold("Welcome to Muntazir Mohammad - ATM Machine"))
+console.log(chalk.rgb(0,255,0).bold("Welcome to Muntazir Mohammad - ATM Machine"))
 console.log(chalk.yellow.bold(`The pin is ${myPin}`))
 
 let pinAnswer = await inquirer.prompt(
@@ -55,7 +55,7 @@ if (pinAnswer.pin === myPin) {
 
             myBalance -= fastCashAns.fastCashAmount
 
-            console.log(`Your transaction is successful, remaining balance is ${myBalance}`)
+            console.log(chalk.yellow.bold(`Your transaction is successful, remaining balance is ${myBalance}`))
         }
 
         if(withdrawMethod.withdrawOption === "Enter Amount") {
@@ -71,17 +71,17 @@ if (pinAnswer.pin === myPin) {
 
             if(amount.amountAns <= myBalance){
                 myBalance -= amount.amountAns
-                console.log(`Your transaction is successful, remaining balance is ${myBalance}`)
+                console.log(chalk.yellow.bold(`Your transaction is successful, remaining balance is ${myBalance}`))
             }
             else {
-                console.log(`Your transaction was unsuccessful, Insufficient Balance!`)
+                console.log(chalk.red.bold(`Your transaction was unsuccessful, Insufficient Balance!`))
             }
         }
     }
     else {
-        console.log(`Your current balance is ${myBalance}`)
+        console.log(chalk.yellow.bold(`Your current balance is ${myBalance}`))
     }
 }
 else {
-    console.log("Incorect Pin!")
+    console.log(chalk.red.bold("Incorect Pin!"))
 }
